@@ -1,7 +1,13 @@
 import './style.css'
 
+import Container from 'react-bootstrap/Container';
+
+import {NavigationBar} from '../../components/NavigationBar'
+
 export const HomePage = () =>{
     return(
-        <h1>home</h1>
+        <Container>
+            <NavigationBar />
+        </Container>
     )
 }

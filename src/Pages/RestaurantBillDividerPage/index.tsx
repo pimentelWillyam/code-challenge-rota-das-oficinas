@@ -1,7 +1,13 @@
 import './style.css'
 
+import Container from 'react-bootstrap/Container';
+
+import {NavigationBar} from '../../components/NavigationBar'
+
 export const RestaurantBillDividerPage = () =>{
     return(
-        <h1>restaurant bill divider</h1>
+        <Container>
+            <NavigationBar />
+        </Container>
     )
 }

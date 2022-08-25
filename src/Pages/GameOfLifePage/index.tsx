@@ -1,7 +1,13 @@
 import './style.css'
 
+import Container from 'react-bootstrap/Container';
+
+import {NavigationBar} from '../../components/NavigationBar'
+
 export const GameOfLifePage = () =>{
     return(
-        <h1>game of life</h1>
+        <Container>
+            <NavigationBar />
+        </Container>
     )
 }
