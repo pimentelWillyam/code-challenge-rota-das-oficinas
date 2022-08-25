@@ -16,7 +16,7 @@ export const NavigationBar = () =>{
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/roman-numbers-conversor">Roman Numbers Conversor</Nav.Link>
                     <Nav.Link href="/restaurant-bill-divider">Restaurant Bill Divider</Nav.Link>
-                    <Nav.Link href="/game-of-life">Restaurant Bill Divider</Nav.Link>
+                    <Nav.Link href="/game-of-life">Game of Life</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
