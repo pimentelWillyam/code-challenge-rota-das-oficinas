@@ -1,6 +1,6 @@
-import 'style.css'
+import './style.css'
 
-export const RestaurantBillDividirPage = () =>{
+export const RestaurantBillDividerPage = () =>{
     return(
         <h1>restaurant bill divider</h1>
     )
