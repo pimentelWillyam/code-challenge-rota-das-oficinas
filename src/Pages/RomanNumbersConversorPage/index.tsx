@@ -1,6 +1,6 @@
 import './style.css'
 
-import Container from 'react-bootstrap/Container';
+import {Container,Col,Row} from 'react-bootstrap/'
 
 import {NavigationBar} from '../../components/NavigationBar'
 import { RomanNumberForm } from '../../components/RomanNumberForm';
@@ -8,8 +8,13 @@ import { RomanNumberForm } from '../../components/RomanNumberForm';
 export const RomanNumbersConversorPage = () =>{
     return(
         <Container>
-            <NavigationBar />
-            <RomanNumberForm />
+            <Row>
+                <NavigationBar />
+            </Row>
+            <Row id="roman-numbers-conversion-page-line-2">
+                <RomanNumberForm />
+            </Row>
+
         </Container>
     )
 }
