@@ -1,3 +1,7 @@
-#roman-number-container{
-    width: 50%;
+#roman-number-form{
+    width: 25vw;
+}
+
+#button-submit-form{
+    float: right;
 }
