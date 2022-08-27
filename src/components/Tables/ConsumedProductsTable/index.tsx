@@ -1,12 +1,11 @@
 import './style.css'
 
-import { useState } from 'react'
-
 import {Link} from 'react-router-dom'
 
 import {Table,Button} from 'react-bootstrap/'
+import { useState } from 'react'
 
-export const CostumersTable = () => {
+export const ConsumedProductsTable = () => {
   const [productList,setProductList] = useState([])
   const [consumerList,setConsumerList] = useState([])
 
@@ -29,9 +28,10 @@ export const CostumersTable = () => {
             <td>@mdo</td>
           </tr>
         </tbody>
-      </Table> 
+      </Table>
       <br />
-      <Button as = {Link} id="add-consumed-product-button" to="/add-costumer" variant="success">Add costumer</Button>
-      </div>
+      <Button as = {Link} id="add-consumed-product-button" to="/add-consumed-product" variant="success">Add consumed product</Button>
+    </div>
+    
   );
 }
