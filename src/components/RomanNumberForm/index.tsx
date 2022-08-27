@@ -12,20 +12,23 @@ import {handleRomanNumberFormSubmit} from '../../handlers/handleRomanNumberFormS
 export const RomanNumberForm = () => {
     const [conversionFormat,setConversionFormat] = useState('Insert conversion format')
     const [numberToBeConverted,setNumberToBeConverted] = useState(null)
-    const [convertedNumber,setConvertedNumber] = useState(null)
+    const [convertedNumber,setConvertedNumber] = useState('')
+    const [conversionDone,setConversionDone] = useState(false)
 
     const updateConversionFormat = (event: React.ChangeEvent<HTMLSelectElement>) =>{
         setConversionFormat(event.target.value)
+        setConversionDone(false)
     }
 
     const updateNumberToBeConverted = (event: any) =>{
         setNumberToBeConverted(event.target.value)
+        setConversionDone(false)
     }
 
   return (
     <Container>
         <Row>
-            <Form id="roman-number-form" onSubmit={(event) => handleRomanNumberFormSubmit(event,conversionFormat,numberToBeConverted,setConvertedNumber) }>
+            <Form id="roman-number-form" onSubmit={(event) => handleRomanNumberFormSubmit(event,conversionFormat,numberToBeConverted,setConvertedNumber,setConversionDone) }>
             <Form.Group className="mb-3">
             <Form.Select onChange={(event) =>{updateConversionFormat(event)}}>
                 <option>Insert conversion format</option>
@@ -40,7 +43,7 @@ export const RomanNumberForm = () => {
             </Form>      
         </Row>
         <Row>
-            <ConvertedNumberBox numberToBeConverted = {numberToBeConverted} convertedNumber = {convertedNumber} conversionFormat = {conversionFormat} />
+            <ConvertedNumberBox numberToBeConverted = {numberToBeConverted} convertedNumber = {convertedNumber} conversionFormat = {conversionFormat} conversionDone = {conversionDone} />
         </Row>
       
     </Container>
