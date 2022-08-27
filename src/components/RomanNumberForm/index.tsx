@@ -28,6 +28,7 @@ export const RomanNumberForm = () => {
   return (
     <Container>
         <Row>
+          <Col xs={8}>
             <Form id="roman-number-form" onSubmit={(event) => handleRomanNumberFormSubmit(event,conversionFormat,numberToBeConverted,setConvertedNumber,setConversionDone) }>
             <Form.Group className="mb-3">
             <Form.Select onChange={(event) =>{updateConversionFormat(event)}}>
@@ -40,10 +41,11 @@ export const RomanNumberForm = () => {
                 <Form.Control onChange={(event) =>{updateNumberToBeConverted(event)}} type="text" placeholder="Insert number to be converted" />
             </Form.Group>
                 <Button id="button-submit-form" variant="primary" type="submit">Convert</Button>
-            </Form>      
-        </Row>
-        <Row>
+            </Form>   
+          </Col> 
+          <Col>
             <ConvertedNumberBox numberToBeConverted = {numberToBeConverted} convertedNumber = {convertedNumber} conversionFormat = {conversionFormat} conversionDone = {conversionDone} />
+          </Col>  
         </Row>
       
     </Container>
