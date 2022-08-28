@@ -4,11 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //router
 import { Router } from './Router';
 
+import {RecoilRoot} from 'recoil'
+
 function App() {
 
   return (
     <div className="App">
-      <Router />
+      <RecoilRoot>
+        <Router />
+      </RecoilRoot>
+      
     </div>
   )
 }
