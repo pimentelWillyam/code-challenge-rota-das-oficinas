@@ -36,7 +36,7 @@ export const ConsumedProductsTable = () => {
             <tr>
               <td>{consumedProduct.name}</td>
               <td>{consumedProduct.price}</td>
-              <td>{consumedProduct.consumersList}</td>
+              <td>{consumedProduct.consumersList.map((consumer) =>{return (consumer + ' ')})}</td>
               <td><Button variant="danger" onClick={(event) => handleConsumedProductDeletion(consumedProduct,consumedProductList,setConsumedProductList) }>Delete</Button></td>
             </tr>
               )

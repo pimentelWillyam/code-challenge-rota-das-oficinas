@@ -26,13 +26,15 @@ export const AddConsumedProductForm = (props: any) =>{
     }
     const updateProductConsumersList = (event: React.ChangeEvent<any>,costumerName: string) =>{
         if (event.target.checked){
-            const newProductConsumersList = productConsumersList.concat(' '+costumerName)
+            const newProductConsumersList = productConsumersList.concat(costumerName)
             setProductConsumersList(newProductConsumersList)
+            console.log(newProductConsumersList)
         }
         else{
             console.log("removed")
             const newProductConsumersList = productConsumersList.filter((productConsumer: any) => productConsumer!= costumerName)
             setProductConsumersList(newProductConsumersList)
+            console.log(newProductConsumersList)
         }
     }
 
