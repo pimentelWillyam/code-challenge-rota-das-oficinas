@@ -8,14 +8,16 @@ import {Table,Button} from 'react-bootstrap/'
 
 import { useEffect } from 'react'
 
-import { useRecoilState } from 'recoil'
+import { useRecoilState,useRecoilValue } from 'recoil'
+import { consumedProductListAtom } from '../../../atoms/consumedProductListAtom'
 import { costumerListAtom } from '../../../atoms/costumerListAtom'
-import { handleCostumerDeletion } from '../../../handlers/handleCostumerDeletion';
 
+import { handleCostumerDeletion } from '../../../handlers/handleCostumerDeletion';
 import {calculateRestaurantBill} from '../../../helpers/calculateRestaurantBill'
 
 export const CostumersTable = () => {
   const [costumerList,setCostumerList] = useRecoilState(costumerListAtom)
+  const consumedProductList = useRecoilValue(consumedProductListAtom)
   return (
     <div className="table-wrapper">
       <Table striped bordered hover>
@@ -31,10 +33,11 @@ export const CostumersTable = () => {
           {
             costumerList.map((costumer) =>{
               return(
+                
           <tr>
             <td>{costumer.name}</td>
             <td>{JSON.stringify(costumer.willPayServiceFee)}</td>
-            <td>R${calculateRestaurantBill(costumer.name)}</td>
+            <td>R${calculateRestaurantBill(costumer.name,costumer.willPayServiceFee,consumedProductList)}</td>
             <td><Button variant="danger" onClick={event => handleCostumerDeletion(costumer,costumerList,setCostumerList)}>Delete</Button></td>
           </tr>
               )
