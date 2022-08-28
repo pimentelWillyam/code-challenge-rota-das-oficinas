@@ -31,7 +31,7 @@ export const CostumersTable = () => {
         </thead>
         <tbody>
           {
-            costumerList.map((costumer) =>{
+            costumerList.map((costumer: any) =>{
               return(
                 
           <tr>

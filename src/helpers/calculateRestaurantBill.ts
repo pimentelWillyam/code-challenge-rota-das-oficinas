@@ -1,4 +1,4 @@
-export const calculateRestaurantBill: number= (costumerName: string, willPayServiceFee: boolean, consumedProductList: any[]) =>{
+export const calculateRestaurantBill= (costumerName: string, willPayServiceFee: boolean, consumedProductList: any[]) =>{
     var restaurantBill = 0
     var productPrice = 0
     var howManyConsumersAre= 0
