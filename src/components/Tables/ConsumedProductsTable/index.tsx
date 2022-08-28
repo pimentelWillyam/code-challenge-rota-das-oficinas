@@ -3,11 +3,21 @@ import './style.css'
 import {Link} from 'react-router-dom'
 
 import {Table,Button} from 'react-bootstrap/'
-import { useState } from 'react'
+
+import { useEffect } from 'react'
+
+import { useRecoilState } from 'recoil';
+import { consumedProductListAtom } from '../../../atoms/consumedProductListAtom'
+
+import {handleConsumedProductDeletion } from '../../../handlers/handleConsumedProductDeletion'
+
 
 export const ConsumedProductsTable = () => {
-  const [productList,setProductList] = useState([])
-  const [consumerList,setConsumerList] = useState([])
+  const [consumedProductList,setConsumedProductList] = useRecoilState(consumedProductListAtom)
+
+  useEffect(() => {
+    setConsumedProductList(consumedProductList)
+  },[])
 
   return (
     <div className="table-wrapper">
@@ -21,12 +31,16 @@ export const ConsumedProductsTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
+          {consumedProductList.map((consumedProduct) =>{
+              return(
+            <tr>
+              <td>{consumedProduct.name}</td>
+              <td>{consumedProduct.price}</td>
+              <td>{consumedProduct.consumersList}</td>
+              <td><Button variant="danger" onClick={(event) => handleConsumedProductDeletion(consumedProduct,consumedProductList,setConsumedProductList) }>Delete</Button></td>
+            </tr>
+              )
+          })} 
         </tbody>
       </Table>
       <br />

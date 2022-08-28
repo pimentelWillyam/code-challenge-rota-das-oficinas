@@ -6,28 +6,39 @@ import {Link} from 'react-router-dom'
 
 import {Table,Button} from 'react-bootstrap/'
 
-export const CostumersTable = () => {
-  const [productList,setProductList] = useState([])
-  const [consumerList,setConsumerList] = useState([])
+import { useEffect } from 'react'
 
+import { useRecoilState } from 'recoil'
+import { costumerListAtom } from '../../../atoms/costumerListAtom'
+import { handleCostumerDeletion } from '../../../handlers/handleCostumerDeletion';
+
+export const CostumersTable = () => {
+  const [costumerList,setCostumerList] = useRecoilState(costumerListAtom)
   return (
     <div className="table-wrapper">
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>Name</th>
-            <th>Price</th>
-            <th>Consumers</th>
+            <th>will pay service fee</th>
+            <th>Total do pay</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
+          {
+            costumerList.map((costumer) =>{
+              return(
           <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>{costumer.name}</td>
+            <td>{JSON.stringify(costumer.willPayServiceFee)}</td>
+            <td>R${0}</td>
+            <td><Button variant="danger" onClick={event => handleCostumerDeletion(costumer,costumerList,setCostumerList)}>Delete</Button></td>
           </tr>
+              )
+            })
+          }
+          
         </tbody>
       </Table> 
       <br />
