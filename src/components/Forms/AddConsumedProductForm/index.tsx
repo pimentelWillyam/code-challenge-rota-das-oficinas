@@ -1,28 +1,32 @@
 import './style.css'
 
-import {handleAddFoodFormSubmit} from '../../../handlers/handleAddFoodFormSubmit'
+import {handleAddConsumedProductFormSubmit} from '../../../handlers/handleAddConsumedProductFormSubmit'
 
 import {Form,Button} from 'react-bootstrap';
 
 import {useState} from 'react'
 
+import {useRecoilState} from 'recoil'
+import {consumedProductListAtom} from '../../../atoms/consumedProductListAtom'
+
 export const AddConsumedProductForm = (props: any) =>{
-    const [foodName,setFoodName] = useState('')
-    const [foodPrice,setFoodPrice] = useState(0)
+    const [productName,setProductName] = useState('')
+    const [productPrice,setProductPrice] = useState(0)
     const [consumersList] = useState([])
+    const [consumedProductsList,setConsumedProductsList] = useRecoilState(consumedProductListAtom)
 
 
-    const updateFoodName = (event: React.ChangeEvent<any>) =>{
-        setFoodName(event.target.value)
+    const updateProductName = (event: React.ChangeEvent<any>) =>{
+        setProductName(event.target.value)
     }
     const updateFoodPrice = (event: React.ChangeEvent<any>) =>{
-        setFoodPrice(event.target.value)
+        setProductPrice(event.target.value)
     }
 
     return(
-        <Form id="add-consumed-product-form" onSubmit={(event) => handleAddFoodFormSubmit(event,foodName,foodPrice) }>
+        <Form id="add-consumed-product-form" onSubmit={(event) => handleAddConsumedProductFormSubmit(event,productName,productPrice,consumedProductsList,setConsumedProductsList) }>
             <Form.Group className="mb-3" controlId="formRomanNumberConversion">
-                <Form.Control onChange={(event) =>{updateFoodName(event)}} type="text" placeholder="Insert food name" />
+                <Form.Control onChange={(event) =>{updateProductName(event)}} type="text" placeholder="Insert food name" />
             </Form.Group>
             <Form.Group>
                 <Form.Control onChange={(event) =>{updateFoodPrice(event)}} type="text" placeholder="Insert food price" />

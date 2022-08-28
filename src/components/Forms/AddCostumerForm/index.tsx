@@ -3,11 +3,16 @@ import './style.css'
 import {handleAddCostumerFormSubmit} from '../../../handlers/handleAddCostumerFormSubmit'
 
 import {useState} from 'react'
+
+import {useRecoilState} from 'recoil'
+import {costumerListAtom} from '../../../atoms/costumerListAtom'
+
 import {Form,Button} from 'react-bootstrap'
 
 export const AddCostumerForm = () =>{
     const [costumerName,setCostumerName] = useState('')
     const [willPayServiceFee,setWillPayServiceFee] = useState(false)
+    const [costumerList,setCostumerList] = useRecoilState(costumerListAtom)
 
     const updateCostumerName = (event: React.ChangeEvent<any>) =>{
         setCostumerName(event.target.value)
@@ -18,7 +23,7 @@ export const AddCostumerForm = () =>{
     }
 
     return(
-        <Form id="add-costumer-form" onSubmit={(event) => handleAddCostumerFormSubmit(event,costumerName,willPayServiceFee) }>
+        <Form id="add-costumer-form" onSubmit={(event) => handleAddCostumerFormSubmit(event,costumerName,willPayServiceFee,costumerList,setCostumerList) }>
             <Form.Group className="mb-3" controlId="add-costumer-form">
                 <Form.Control onChange={(event) =>{updateCostumerName(event)}} type="text" placeholder="Insert costumer's name" />
             </Form.Group>
