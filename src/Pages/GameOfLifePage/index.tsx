@@ -1,13 +1,22 @@
 import './style.css'
 
-import Container from 'react-bootstrap/Container';
+import {Container,Row} from 'react-bootstrap/';
 
 import {NavigationBar} from '../../components/NavigationBar'
+
+import { GameOfLifeMatrix } from '../../components/GameOfLifeMatrix';
 
 export const GameOfLifePage = () =>{
     return(
         <Container>
-            <NavigationBar />
+            <Row>
+                <NavigationBar />
+            </Row>
+            <Row>
+                <GameOfLifeMatrix />
+            </Row>
+
+            
         </Container>
     )
 }
