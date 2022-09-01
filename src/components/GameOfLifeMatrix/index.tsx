@@ -46,14 +46,14 @@ export const GameOfLifeMatrix = () =>{
 
     return(
         <div className="table-wrapper">
-            <Table striped bordered hover id='game-of-life-table'>
+            <Table bordered hover id='game-of-life-table'>
             <thead>
             <tr>
             </tr>
             </thead>
             <tbody id=''>
                 <tr>
-                    <td className='green' onClick={() => hasBeenClicked(0,0)}>{matrix[0][0]}</td>
+                    <td onClick={() => hasBeenClicked(0,0)}>{matrix[0][0]}</td>
                     <td onClick={() => hasBeenClicked(0,1)}>{matrix[0][1]}</td>
                     <td onClick={() => hasBeenClicked(0,2)}>{matrix[0][2]}</td>
                     <td onClick={() => hasBeenClicked(0,3)}>{matrix[0][3]}</td>
