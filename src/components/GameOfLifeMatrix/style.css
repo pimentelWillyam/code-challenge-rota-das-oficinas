@@ -1,0 +1,15 @@
+#game-of-life-table{
+    margin-top: 5%;
+    user-select: none;
+}
+
+#play-button{
+    margin-top: 1% ;
+    float: right;
+}
+
+#stop-button{
+    margin-top: 1% ;
+    float: left;
+}
+
